@@ -4,8 +4,9 @@
 #include "tree.h"
 
 int main() {
-    Node* root;
+    Node* root = NULL;
 
+    // Seed random number generator with current time
     srand(time(NULL));
 
     // Random number of chars (11–20)
@@ -14,17 +15,16 @@ int main() {
     printf("Inserted characters:\n");
 
     for (int i = 0; i < numChars; i++) {
-        char c = rand() % 26 + 'a';
+        char c = 'a' + rand() % 26; // Generate a random lowercase letter
         printf("%c ", c);
-        root = insert(root, c);
+        root = insert(root, c); // Insert the character into the BST
     }
 
     printf("\n\nSorted (In-Order Traversal):\n");
-    printTree(root);
+    printTree(root);    // Print all nodes in sorted order
 
-    printf("\n\nNumber of Nodes: %d\n", countNodes(root));
-    printf("Tree Height: %d\n", treeHeight(root));
-
+    printf("\n\nNumber of Nodes: %d\n", countNodes(root));  // Count and display nodes
+    printf("Tree Height: %d\n", treeHeight(root));  // Calculate and display tree height
     return 0;
 }
 
