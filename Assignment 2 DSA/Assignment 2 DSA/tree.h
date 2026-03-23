@@ -9,6 +9,7 @@ typedef struct Node {
 } Node;
 
 // Function declarations
+Node* createNode(char data);
 Node* insert(Node* root, char data);
 Node* search(Node* root, char data);
 int countNodes(Node* root);
