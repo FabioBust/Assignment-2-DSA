@@ -50,3 +50,45 @@ Node* search(Node* root, char data) {
         return search(root->right, data);
     }
 }
+
+// Count the total number of nodes in the BST
+int countNodes(Node* root) {
+    
+    // empty subtree
+    if (root == NULL) {           
+        return 0;
+    }
+
+    // Count current node + nodes in left and right subtrees
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+
+// Find the height of the BST
+int treeHeight(Node* root) {
+
+    // empty tree has height -1
+    if (root == NULL) {
+        return -1;
+    }
+
+    // Recursively find height of left and right subtrees
+    int leftHeight = treeHeight(root->left);
+    int rightHeight = treeHeight(root->right);
+
+    // Height is max of left/right + 1 for current node
+    if (leftHeight > rightHeight) {
+        return leftHeight + 1;
+    }
+    else {
+        return rightHeight + 1;
+    }
+}
+
+// Print all nodes in alphabetical order (in-order traversal)
+void printTree(Node* root) {
+    if (root != NULL) {
+        printInOrder(root->left);    // Visit left subtree first
+        printf("%c ", root->data);   // Then current node
+        printInOrder(root->right);   // Finally, right subtree
+    }
+}
