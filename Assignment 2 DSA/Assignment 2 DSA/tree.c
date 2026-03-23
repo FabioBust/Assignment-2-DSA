@@ -87,8 +87,8 @@ int treeHeight(Node* root) {
 // Print all nodes in alphabetical order (in-order traversal)
 void printTree(Node* root) {
     if (root != NULL) {
-        printInOrder(root->left);    // Visit left subtree first
+        printTree(root->left);    // Visit left subtree first
         printf("%c ", root->data);   // Then current node
-        printInOrder(root->right);   // Finally, right subtree
+        printTree(root->right);   // Finally, right subtree
     }
 }
