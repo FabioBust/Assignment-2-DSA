@@ -25,6 +25,20 @@ int main() {
 
     printf("\n\nNumber of Nodes: %d\n", countNodes(root));  // Count and display nodes
     printf("Tree Height: %d\n", treeHeight(root));  // Calculate and display tree height
+
+    // Search for a random character in the tree
+    char target = 'a' + rand() % 26;
+    printf("\n\nSearching for: %c\n", target);
+
+    Node* result = search(root, target); // Call search function
+
+    // Check if the character was found
+    if (result != NULL) {
+        printf("Character %c found in the tree.\n", target);
+    }
+    else {
+        printf("Character %c not found in the tree.\n", target);
+    }
+
     return 0;
 }
-
